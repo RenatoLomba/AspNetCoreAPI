@@ -87,11 +87,12 @@ namespace Services.Services
             return new
             {
                 authenticated = true,
+                message = "Usuário autenticado com sucesso",
+                userEmail = user.Email,
+                userName = user.Name,
+                accessToken = token,
                 created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 expirationDate = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                accessToken = token,
-                userName = user.Email,
-                message = "Usuário autenticado com sucesso"
             };
         }
     }
