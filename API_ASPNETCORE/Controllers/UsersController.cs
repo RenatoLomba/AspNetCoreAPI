@@ -57,7 +57,15 @@ namespace Application.Controllers
             }
             try
             {
-                return Ok(await _service.Get(id));
+                var result = await _service.Get(id);
+                if(result != null)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
             catch (ArgumentException ex)
             {
@@ -146,7 +154,14 @@ namespace Application.Controllers
             }
             try
             {
-                return Ok(await _service.Delete(id));
+                var result = await _service.Delete(id);
+                if(result)
+                {
+                    return Ok(result);
+                } else
+                {
+                    return BadRequest();
+                }
             }
             catch (ArgumentException ex)
             {

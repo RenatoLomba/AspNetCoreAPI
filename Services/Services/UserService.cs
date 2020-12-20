@@ -25,7 +25,7 @@ namespace Services.Services
         public async Task<UserDTOSelectResult> Get(Guid id)
         {
             var result = await _userRepository.SelectAsync(id);
-            return _mapper.Map<UserDTOSelectResult>(result);
+            return _mapper.Map<UserDTOSelectResult>(result) ?? new UserDTOSelectResult();
         }
 
         public async Task<IEnumerable<UserDTOSelectResult>> GetAll()
