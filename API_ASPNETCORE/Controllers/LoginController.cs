@@ -2,10 +2,7 @@
 using FluentValidation.Results;
 using System.Net;
 using System.Threading.Tasks;
-using Domain.DTOs;
-using Domain.Entities;
 using Domain.Interfaces.ServiceInterfaces;
-using Domain.Validators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation;

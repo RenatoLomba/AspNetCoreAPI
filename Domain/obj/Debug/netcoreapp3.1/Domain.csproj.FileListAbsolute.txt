@@ -6,3 +6,4 @@ C:\Users\adm\Documents\GitHub\API_ASPNETCORE\Domain\obj\Debug\netcoreapp3.1\Doma
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\Domain\obj\Debug\netcoreapp3.1\Domain.dll
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\adm\Documents\GitHub\API_ASPNETCORE\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache

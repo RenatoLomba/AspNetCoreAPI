@@ -22,7 +22,6 @@ namespace Services.Services
         private readonly SigningConfigurations _signConfig;
         private readonly TokenConfigurations _tokenConfig;
         private readonly IConfiguration _config;
-
         public LoginService(IUserRepository userRepository, SigningConfigurations signingConfigurations,
             TokenConfigurations tokenConfigurations, IConfiguration configuration)
         {
@@ -36,7 +35,6 @@ namespace Services.Services
         public async Task<object> GetByEmail(LoginDTO login)
         {
             var user = new UserEntity();
-
             user = await _userRepository.SelectAsync(login.Email);
 
             if (user != null)

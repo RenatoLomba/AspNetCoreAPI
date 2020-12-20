@@ -11,8 +11,7 @@ namespace Domain.Validators
         {
             RuleSet("LoginPwd", () =>
             {
-                RuleFor(x => x.Email).NotNull().NotEqual("foo").NotEmpty().EmailAddress();
-                RuleFor(x => x.Senha).NotNull().NotEqual("foo").NotEmpty();
+                RuleFor(x => x.Email).NotNull().NotEqual("foo").NotEmpty().EmailAddress().MaximumLength(100);
             });
         }
     }
