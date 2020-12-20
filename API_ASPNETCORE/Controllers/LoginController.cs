@@ -6,6 +6,8 @@ using Domain.Interfaces.ServiceInterfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation;
+using Domain.DTOs;
+using Domain.Validators;
 
 namespace Application.Controllers
 {
@@ -31,7 +33,7 @@ namespace Application.Controllers
             //CRIA O VALIDATOR
             LoginValidator validator = new LoginValidator();
             //CHAMA O VALIDATOR
-            ValidationResult valResult = validator.Validate(login, options => options.IncludeRuleSets("LoginPwd"));
+            ValidationResult valResult = validator.Validate(login);
 
             //VALIDAÇÃO
             if (!valResult.IsValid)

@@ -68,21 +68,23 @@ namespace Data.Repository
 
         public async Task<bool> DeleteAsync(Guid id)
         {
+            bool deleted = false;
             try
             {
                 var result = await _dataSet.SingleOrDefaultAsync(p => p.Id.Equals(id));
-                if (result == null)
-                    return false;
+                if (result != null)
+                {
+                    _dataSet.Remove(result); //DELETE * FROM [] WHERE ID=id
 
-                _dataSet.Remove(result); //DELETE * FROM [] WHERE ID=id
-
-                await _context.SaveChangesAsync();
-                return true;
+                    await _context.SaveChangesAsync();
+                    deleted = true;
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return deleted;
         }
 
         public async Task<bool> ExistAsync(Guid id)

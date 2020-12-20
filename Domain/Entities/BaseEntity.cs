@@ -11,11 +11,13 @@ namespace Domain.Entities
         [Key] //DATA ANNOTATION
         public Guid Id { get; set; } //IDENTIFICADOR GLOBAL UNICO PRIMARY KEY
         private DateTime? _createAt;
-        public DateTime? CreateAt //DATA SETADA AUTOMATICAMENTE COMO A HORA ATUAL DO SERVIDOR
+
+        public DateTime? CreateAt
         {
             get { return _createAt; }
             set { _createAt = (value == null ? DateTime.UtcNow : value); }
         }
+
         public DateTime? UpdateAt { get; set; }
 
     }

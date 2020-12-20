@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CrossCutting.DependencyInjection;
+using CrossCutting.Mappings;
 using Domain.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -35,6 +37,17 @@ namespace API_ASPNETCORE
             ConfigureContext.ConfigureDependenciesContext(services);
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
+
+            //CONFIGURAÇÃO DO AUTOMAPPER
+            var mapperConfigurations = new AutoMapper.MapperConfiguration(cfg => 
+            {
+                //CLASSES DE MAPEAMENTO
+                cfg.AddProfile(new DTOtoModelProfile());
+                cfg.AddProfile(new EntitytoDTOProfile());
+                cfg.AddProfile(new ModeltoEntityProfile());
+            });
+            IMapper mapper = mapperConfigurations.CreateMapper();
+            services.AddSingleton(mapper);
 
             //CONFIGURAÇÕES DE TOKEN E AUTENTICAÇÃO
             var signingConfigurations = new SigningConfigurations();

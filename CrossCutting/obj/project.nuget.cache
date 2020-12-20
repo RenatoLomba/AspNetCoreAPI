@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "j7YOCb7yAQ8tSLDnkCMbyCsruddzcYBeqP19a+WxlDCurj9Dk2I1VNAEbzLs6tsdE8X/WgRYv15THgrXHb+TwA==",
+  "dgSpecHash": "6tomLI1ZwuF0vSj2tp1/Y2C3mXpnYmsdtYCiFkeX+ZBss+huqfMSPOxRJzRcvn6MmVSG1wDojMNfI9O6m3/2kQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\adm\\Documents\\GitHub\\API_ASPNETCORE\\CrossCutting\\CrossCutting.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\adm\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
+    "C:\\Users\\adm\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\fluentvalidation\\9.3.0\\fluentvalidation.9.3.0.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.3.0\\fluentvalidation.aspnetcore.9.3.0.nupkg.sha512",

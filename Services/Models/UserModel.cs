@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.Models
+namespace Services.Models
 {
     public class UserModel
     {

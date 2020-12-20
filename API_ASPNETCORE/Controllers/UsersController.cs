@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Domain.DTOs.User;
 using Domain.Entities;
 using Domain.Interfaces.ServiceInterfaces;
 using Domain.Validators;
@@ -67,7 +68,7 @@ namespace Application.Controllers
         //POST
         [Authorize("Bearer")]
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UserEntity user) //RECEBE UM JSON (FROMBODY) QUE SERÁ UMA ENTIDADE USER
+        public async Task<ActionResult> Post([FromBody] UserDTOEntry user) //RECEBE UM JSON (FROMBODY) QUE SERÁ UMA ENTIDADE USER
         {
             if (!ModelState.IsValid)
             {
@@ -104,7 +105,7 @@ namespace Application.Controllers
         //PUT
         [Authorize("Bearer")]
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] UserEntity user)
+        public async Task<ActionResult> Put([FromBody] UserDTOEntry user)
         {
             if (!ModelState.IsValid)
             {
