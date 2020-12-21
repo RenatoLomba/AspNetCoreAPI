@@ -8,12 +8,20 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CrossCutting.DependencyInjection
 {
     //CLASSE DE CONFIGURAÇÃO DO CONTEXTO
-    public class ConfigureContext
+    public class ConfigureContext<T> where T : DbContext
     {
-        public static void ConfigureDependenciesContext(IServiceCollection serviceCollection)
+        public static void ConfigureDependenciesContext(IServiceCollection serviceCollection, string nomeConexao)
         {
-            serviceCollection.AddDbContext<MyContext>(
-                options => options.UseMySql("Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=Redeye@18")
+            serviceCollection.AddDbContext<T>(
+                options => options.UseMySql(nomeConexao)
+            );
+        }
+
+        public static void ConfigureDependenciesContextTest(IServiceCollection serviceCollection, string nomeConexao)
+        {
+            serviceCollection.AddDbContext<T>(
+                options => options.UseMySql(nomeConexao),
+                ServiceLifetime.Transient
             );
         }
     }

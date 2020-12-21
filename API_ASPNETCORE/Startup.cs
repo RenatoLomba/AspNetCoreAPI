@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CrossCutting.DependencyInjection;
 using CrossCutting.Mappings;
+using Data.Context;
 using Domain.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -34,7 +35,8 @@ namespace API_ASPNETCORE
         public void ConfigureServices(IServiceCollection services)
         {
             //CONFIGURAÇÕES DE INJEÇÃO DE DEPENDENCIA
-            ConfigureContext.ConfigureDependenciesContext(services);
+            string conexaoPadrao = "Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=Redeye@18";
+            ConfigureContext<MyContext>.ConfigureDependenciesContext(services, conexaoPadrao);
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
 

@@ -17,7 +17,7 @@ namespace Domain.Validators
                 RuleFor(x => x.Name).NotNull().NotEqual("foo").NotEmpty().MaximumLength(60);
             });
             RuleSet("Put", () => {
-                RuleFor(x => x.Id).NotNull().NotEqual("foo").NotEmpty();
+                RuleFor(x => x.Id).NotNull().NotEmpty().NotEqual(Guid.Empty);
                 RuleFor(x => x.Email).NotNull().NotEqual("foo").NotEmpty().EmailAddress().MaximumLength(100);
                 RuleFor(x => x.Name).NotNull().NotEqual("foo").NotEmpty().MaximumLength(60);
             });
