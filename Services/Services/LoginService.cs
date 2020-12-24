@@ -90,7 +90,7 @@ namespace Services.Services
                 message = "Usuário autenticado com sucesso",
                 userEmail = user.Email,
                 userName = user.Name,
-                Role = role,
+                role = role,
                 accessToken = token,
                 created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 expirationDate = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
