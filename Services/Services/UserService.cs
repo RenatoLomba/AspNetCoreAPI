@@ -22,30 +22,35 @@ namespace Services.Services
             _userRepository = userRepository;
             _mapper = mapper;
         }
-        public async Task<UserDTOSelectResult> Get(Guid id)
+        public async Task<UserDTO> Get(Guid id)
         {
             var result = await _userRepository.SelectAsync(id);
-            return _mapper.Map<UserDTOSelectResult>(result) ?? new UserDTOSelectResult();
+            return _mapper.Map<UserDTO>(result);
+        }
+        public async Task<UserDTO> GetByEmail(string email)
+        {
+            var result = await _userRepository.SelectAsync(email);
+            return _mapper.Map<UserDTO>(result);
         }
 
-        public async Task<IEnumerable<UserDTOSelectResult>> GetAll()
+        public async Task<IEnumerable<UserDTO>> GetAll()
         {
             var result = await _userRepository.SelectAsync();
-            return _mapper.Map<IEnumerable<UserDTOSelectResult>>(result);
+            return _mapper.Map<IEnumerable<UserDTO>>(result);
         }
 
-        public async Task<UserDTOCreateResult> Post(UserDTOEntry user)
+        public async Task<UserDTO> Post(UserDTOEntry user)
         {
             var model = _mapper.Map<UserModel>(user);
             var result = await _userRepository.InsertAsync(_mapper.Map<UserEntity>(model));
-            return _mapper.Map<UserDTOCreateResult>(result);
+            return _mapper.Map<UserDTO>(result);
         }
 
-        public async Task<UserDTOUpdateResult> Put(UserDTOEntry user)
+        public async Task<UserDTO> Put(UserDTOEntry user)
         {
             var model = _mapper.Map<UserModel>(user);
             var result = await _userRepository.UpdateAsync(_mapper.Map<UserEntity>(model));
-            return _mapper.Map<UserDTOUpdateResult>(result);
+            return _mapper.Map<UserDTO>(result);
         }
 
         public async Task<bool> Delete(Guid id)

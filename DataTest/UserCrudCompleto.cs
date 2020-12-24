@@ -41,11 +41,6 @@ namespace DataTest
                 Assert.False(_registroCriado.Id == Guid.Empty);
                 //-------------------------------------------
 
-                //EXISTE
-                var _registroExiste = await _repUserImplementation.ExistAsync(_entity.Id);
-                Assert.True(_registroExiste);
-                //-------------------------------------------
-
                 //SELECT
                 var _registroRetornado = await _repUserImplementation.SelectAsync(_entity.Id);
                 Assert.NotNull(_registroRetornado);

@@ -10,10 +10,10 @@ namespace CrossCutting.DependencyInjection
     //CLASSE DE CONFIGURAÇÃO DO CONTEXTO
     public class ConfigureContext<T> where T : DbContext
     {
-        public static void ConfigureDependenciesContext(IServiceCollection serviceCollection, string nomeConexao)
+        public static void ConfigureDependenciesContext(IServiceCollection serviceCollection)
         {
             serviceCollection.AddDbContext<T>(
-                options => options.UseMySql(nomeConexao)
+                options => options.UseMySql(Conexao.ConexaoPadrao)
             );
         }
 

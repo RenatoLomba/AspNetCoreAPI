@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "SlBma+wRK2BnaWp/zGFTSgshHTvrDVsmCgjUAlBnbEo7xy1ha1IyWXjaLmI3zV5mUaeBiCYaAA3zKjksYDbgqQ==",
+  "dgSpecHash": "+SHDqbHIdubp99i8+MBM1BA78ZvtEndfmm8AAg0cmpqwUAKlL4/yGRXL74oDjOxew66T2TbCtk4NEDPch8MS8g==",
   "success": true,
   "projectFilePath": "C:\\Users\\adm\\Documents\\GitHub\\API_ASPNETCORE\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adm\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\adm\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
+    "C:\\Users\\adm\\.nuget\\packages\\dapper.contrib\\2.0.78\\dapper.contrib.2.0.78.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\fluentvalidation\\9.3.0\\fluentvalidation.9.3.0.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.3.0\\fluentvalidation.aspnetcore.9.3.0.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.3.0\\fluentvalidation.dependencyinjectionextensions.9.3.0.nupkg.sha512",
@@ -38,6 +40,7 @@
     "C:\\Users\\adm\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.8.0\\system.identitymodel.tokens.jwt.6.8.0.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\adm\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\adm\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []

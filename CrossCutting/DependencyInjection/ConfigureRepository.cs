@@ -12,7 +12,6 @@ namespace CrossCutting.DependencyInjection
         //CONFIGURAÇÃO DAS INJEÇÕES DE DEPENDÊNCIA DA CAMADA REPOSITORY
         public static void ConfigureDependenciesRepository(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped(typeof(IUserRepository), typeof(UserRepository));
         }
     }

@@ -15,6 +15,5 @@ namespace Domain.Interfaces.RepositoryInterfaces
         Task<bool> DeleteAsync(Guid id); //DELETE
         Task<T> SelectAsync(Guid id); //SELECT ESPECÍFICO
         Task<IEnumerable<T>> SelectAsync(); //SELECT ALL
-        Task<bool> ExistAsync(Guid id); //VERIFICA SE EXISTE
     }
 }

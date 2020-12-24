@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Application.Controllers
 {
     //http://localhost:5000/api/users
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -26,7 +26,7 @@ namespace Application.Controllers
         }
 
         //GET ALL USERS
-        [Authorize("Bearer")] //REQUER AUTORIZAÇÃO DE VALIDAÇÃO
+        [Authorize("Bearer", Roles = "Administrador")] //REQUER AUTORIZAÇÃO DE VALIDAÇÃO
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
@@ -37,7 +37,8 @@ namespace Application.Controllers
             }
             try
             {
-                return Ok(await _service.GetAll()); //200 OK - Requisição Bem Sucedida
+                var result = await _service.GetAll();
+                return Ok(result); //200 OK - Requisição Bem Sucedida
             }
             catch (ArgumentException ex) //Exceção de Argumento (Controller)
             {
@@ -46,9 +47,8 @@ namespace Application.Controllers
         }
 
         //GET USER BY ID
-        [Authorize("Bearer")]
-        [HttpGet]
-        [Route("{id}", Name = "GetById")] //Configura o parâmetro do método e o Nome dele na Rota
+        [Authorize("Bearer", Roles = "Administrador")]
+        [HttpGet("{id}")] //Configura o parâmetro do método e o Nome dele na Rota
         public async Task<ActionResult> GetById(Guid id)
         {
             if (!ModelState.IsValid)
@@ -73,8 +73,35 @@ namespace Application.Controllers
             }
         }
 
+        //GET BY EMAIL
+        [Authorize("Bearer", Roles = "Administrador")]
+        [HttpGet("{email}")] //Configura o parâmetro do método e o Nome dele na Rota
+        public async Task<ActionResult> GetByEmail(string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var result = await _service.GetByEmail(email);
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
         //POST
-        [Authorize("Bearer")]
+        [Authorize("Bearer", Roles = "Administrador")]
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] UserDTOEntry user) //RECEBE UM JSON (FROMBODY) QUE SERÁ UMA ENTIDADE USER
         {
@@ -96,8 +123,7 @@ namespace Application.Controllers
                 var result = await _service.Post(user); //EXECUTA O METODO POST PARA CRIAR USUÁRIO NO BANCO
                 if (result != null)
                 {
-                    //RETORNA UMA REQUISIÇÃO 201 PASSANDO UM LINK PARA ACESSAR O GETBYID COM O NOVO OBJETO CRIADO
-                    return Created(new Uri(Url.Link("GetById", new { id = result.Id })), result);
+                    return Ok(result);
                 }
                 else
                 {
@@ -111,7 +137,7 @@ namespace Application.Controllers
         }
 
         //PUT
-        [Authorize("Bearer")]
+        [Authorize("Bearer", Roles = "Administrador")]
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] UserDTOEntry user)
         {
@@ -144,7 +170,7 @@ namespace Application.Controllers
         }
 
         //DELETE
-        [Authorize("Bearer")]
+        [Authorize("Bearer", Roles = "Administrador")]
         [HttpDelete("{id}")] //ESPERA UM PARÂMETRO NA ROTA
         public async Task<ActionResult> Delete(Guid id)
         {

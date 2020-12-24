@@ -44,6 +44,7 @@ namespace Services.Services
                     new GenericIdentity(user.Email),
                     new[]
                     {
+                        new  Claim(ClaimTypes.Role, "Administrador"),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //JTI O ID DO TOKEN SERÁ UM GUID
                         new Claim(JwtRegisteredClaimNames.UniqueName, user.Email), //NOME DO TOKEN SERÁ O EMAIL DO USUÁRIO
                     }

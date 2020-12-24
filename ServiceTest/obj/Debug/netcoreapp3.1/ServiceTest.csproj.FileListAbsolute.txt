@@ -137,3 +137,5 @@ C:\Users\adm\Documents\GitHub\API_ASPNETCORE\ServiceTest\obj\Debug\netcoreapp3.1
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\ServiceTest\obj\Debug\netcoreapp3.1\ServiceTest.genruntimeconfig.cache
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\ServiceTest\bin\Debug\netcoreapp3.1\Faker.NETCore.dll
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\ServiceTest\bin\Debug\netcoreapp3.1\de-DE\Faker.NETCore.resources.dll
+C:\Users\adm\Documents\GitHub\API_ASPNETCORE\ServiceTest\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\adm\Documents\GitHub\API_ASPNETCORE\ServiceTest\bin\Debug\netcoreapp3.1\Dapper.Contrib.dll

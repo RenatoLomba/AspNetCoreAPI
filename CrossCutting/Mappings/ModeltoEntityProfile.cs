@@ -12,7 +12,7 @@ namespace CrossCutting.Mappings
     {
         public ModeltoEntityProfile()
         {
-            CreateMap<UserModel, UserEntity>().ReverseMap();
+            CreateMap<UserModel, UserEntity>();
         }
     }
 }

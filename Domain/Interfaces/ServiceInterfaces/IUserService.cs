@@ -10,10 +10,11 @@ namespace Domain.Interfaces.ServiceInterfaces
     //INTERFACE DE METODOS DA SERVICE DE USUÁRIO
     public interface IUserService
     {
-        Task<UserDTOSelectResult> Get(Guid id);
-        Task<IEnumerable<UserDTOSelectResult>> GetAll();
-        Task<UserDTOCreateResult> Post(UserDTOEntry user);
-        Task<UserDTOUpdateResult> Put(UserDTOEntry user);
+        Task<UserDTO> Get(Guid id);
+        Task<UserDTO> GetByEmail(string email);
+        Task<IEnumerable<UserDTO>> GetAll();
+        Task<UserDTO> Post(UserDTOEntry user);
+        Task<UserDTO> Put(UserDTOEntry user);
         Task<bool> Delete(Guid id);
     }
 }

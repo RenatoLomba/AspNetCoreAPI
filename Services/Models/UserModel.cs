@@ -35,9 +35,7 @@ namespace Services.Models
         public DateTime CreateAt
         {
             get { return _CreateAt; }
-            set { 
-                _CreateAt = value == null ? DateTime.UtcNow : value;
-            }
+            set { _CreateAt = value; }
         }
 
         private DateTime _UpdateAt;

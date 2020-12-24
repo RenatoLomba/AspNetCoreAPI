@@ -66,3 +66,5 @@ C:\Users\adm\Documents\GitHub\API_ASPNETCORE\API_ASPNETCORE\bin\Debug\netcoreapp
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\API_ASPNETCORE\bin\Debug\netcoreapp3.1\Data.pdb
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\API_ASPNETCORE\obj\Debug\netcoreapp3.1\Application.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\adm\Documents\GitHub\API_ASPNETCORE\API_ASPNETCORE\obj\Debug\netcoreapp3.1\Application.csproj.CopyComplete
+C:\Users\adm\Documents\GitHub\API_ASPNETCORE\API_ASPNETCORE\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\adm\Documents\GitHub\API_ASPNETCORE\API_ASPNETCORE\bin\Debug\netcoreapp3.1\Dapper.Contrib.dll

@@ -35,8 +35,7 @@ namespace API_ASPNETCORE
         public void ConfigureServices(IServiceCollection services)
         {
             //CONFIGURAÇÕES DE INJEÇÃO DE DEPENDENCIA
-            string conexaoPadrao = "Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=Redeye@18";
-            ConfigureContext<MyContext>.ConfigureDependenciesContext(services, conexaoPadrao);
+            ConfigureContext<MyContext>.ConfigureDependenciesContext(services);
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
 
@@ -45,8 +44,8 @@ namespace API_ASPNETCORE
             {
                 //CLASSES DE MAPEAMENTO
                 cfg.AddProfile(new DTOtoModelProfile());
-                cfg.AddProfile(new EntitytoDTOProfile());
                 cfg.AddProfile(new ModeltoEntityProfile());
+                cfg.AddProfile(new EntitytoDTOProfile());
             });
             IMapper mapper = mapperConfigurations.CreateMapper();
             services.AddSingleton(mapper);
