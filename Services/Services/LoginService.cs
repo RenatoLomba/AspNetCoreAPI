@@ -34,6 +34,7 @@ namespace Services.Services
         //FAZ UMA BUSCA NO BANCO PELO USUÁRIO PELO EMAIL
         public async Task<object> GetByEmail(LoginDTO login)
         {
+            string role = "Administrador";
             var user = new UserEntity();
             user = await _userRepository.SelectAsync(login.Email);
 
@@ -44,7 +45,7 @@ namespace Services.Services
                     new GenericIdentity(user.Email),
                     new[]
                     {
-                        new  Claim(ClaimTypes.Role, "Administrador"),
+                        new Claim(ClaimTypes.Role, role),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //JTI O ID DO TOKEN SERÁ UM GUID
                         new Claim(JwtRegisteredClaimNames.UniqueName, user.Email), //NOME DO TOKEN SERÁ O EMAIL DO USUÁRIO
                     }
@@ -54,7 +55,7 @@ namespace Services.Services
                 var handler = new JwtSecurityTokenHandler();
 
                 string token = CreateToken(identity, createDate, expirationDate, handler);
-                return SuccessObject(createDate, expirationDate, token, user);
+                return SuccessObject(createDate, expirationDate, token, user, role);
             }
             else
             {
@@ -81,7 +82,7 @@ namespace Services.Services
         }
 
         //CRIA UM OBJETO DE SUCESSO COM O TOKEN E INFORMAÇÕES DO TOKEN
-        private object SuccessObject(DateTime createDate, DateTime expirationDate, string token, UserEntity user)
+        private object SuccessObject(DateTime createDate, DateTime expirationDate, string token, UserEntity user, string role)
         {
             return new
             {
@@ -89,6 +90,7 @@ namespace Services.Services
                 message = "Usuário autenticado com sucesso",
                 userEmail = user.Email,
                 userName = user.Name,
+                Role = role,
                 accessToken = token,
                 created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 expirationDate = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
