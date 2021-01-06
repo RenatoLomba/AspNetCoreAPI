@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Data.Mapping;
+using Data.Seeds;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +15,32 @@ namespace Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<UserEntity>(new UserMap().Configure); //CONFIGURA O MAPEAMENTO DA TABELA
+
+            //CONFIGURA O MAPEAMENTO DAS TABELAS A PARTIR DOS MAPPINGS
+            modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+            modelBuilder.Entity<UfEntity>(new UfMap().Configure);
+            modelBuilder.Entity<MunicipioEntity>(new MunicipioMap().Configure);
+            modelBuilder.Entity<CepEntity>(new CepMap().Configure);
+
+            //DADOS SEMENTES GERADOS NA CONSTRUÇÃO DA TABELA NAS MIGRAÇÕES
+            modelBuilder.Entity<UserEntity>().HasData(
+                new UserEntity()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Administrador",
+                    Email = "adm@root.com",
+                    CreateAt = DateTime.Now,
+                    UpdateAt = DateTime.Now
+                }    
+            );
+            UfSeeds.Ufs(modelBuilder);
+
         }
 
-        //PROPRIEDADE QUE REFERENCIA A ENTIDADE USERENTITY
+        //PROPRIEDADES QUE REFERENCIAM AS ENTIDADES
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<UfEntity> Ufs { get; set; }
+        public DbSet<MunicipioEntity> Municipios { get; set; }
+        public DbSet<CepEntity> Ceps { get; set; }
     }
 }

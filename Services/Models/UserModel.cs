@@ -4,18 +4,9 @@ using System.Text;
 
 namespace Services.Models
 {
-    public class UserModel
+    public class UserModel : BaseModel
     {
-        private Guid _Id;
-
-        public Guid Id
-        {
-            get { return _Id; }
-            set { _Id = value; }
-        }
-
         private string _Name;
-
         public string Name
         {
             get { return _Name; }
@@ -23,29 +14,10 @@ namespace Services.Models
         }
 
         private string _Email;
-
         public string Email
         {
             get { return _Email; }
             set { _Email = value; }
         }
-
-        private DateTime _CreateAt;
-
-        public DateTime CreateAt
-        {
-            get { return _CreateAt; }
-            set { _CreateAt = value; }
-        }
-
-        private DateTime _UpdateAt;
-
-        public DateTime UpdateAt
-        {
-            get { return _UpdateAt; }
-            set { _UpdateAt = value; }
-        }
-
-
     }
 }

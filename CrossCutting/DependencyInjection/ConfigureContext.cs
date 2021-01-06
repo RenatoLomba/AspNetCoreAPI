@@ -13,7 +13,7 @@ namespace CrossCutting.DependencyInjection
         public static void ConfigureDependenciesContext(IServiceCollection serviceCollection)
         {
             serviceCollection.AddDbContext<T>(
-                options => options.UseMySql(Conexao.ConexaoPadrao)
+                options => options.UseMySql("Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=Redeye@18")
             );
         }
 

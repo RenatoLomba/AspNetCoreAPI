@@ -13,6 +13,9 @@ namespace CrossCutting.Mappings
         public ModeltoEntityProfile()
         {
             CreateMap<UserModel, UserEntity>();
+            CreateMap<UfModel, UfEntity>();
+            CreateMap<MunicipioModel, MunicipioEntity>();
+            CreateMap<CepModel, CepEntity>();
         }
     }
 }
