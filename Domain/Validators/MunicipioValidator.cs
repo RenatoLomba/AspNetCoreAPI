@@ -13,13 +13,13 @@ namespace Domain.Validators
             RuleSet("Post", () => {
                 RuleFor(x => x.Id).Empty();
                 RuleFor(x => x.Nome).NotNull().NotEqual("foo").NotEmpty().MaximumLength(60);
-                RuleFor(x => x.CodIBGE).NotNull().NotEmpty().IsInEnum();
+                RuleFor(x => x.CodIBGE).NotNull().NotEmpty();
                 RuleFor(x => x.UfId).NotNull().NotEmpty().NotEqual(Guid.Empty);
             });
             RuleSet("Put", () => {
                 RuleFor(x => x.Id).NotNull().NotEmpty().NotEqual(Guid.Empty);
                 RuleFor(x => x.Nome).NotNull().NotEqual("foo").NotEmpty().MaximumLength(60);
-                RuleFor(x => x.CodIBGE).NotNull().NotEmpty().IsInEnum();
+                RuleFor(x => x.CodIBGE).NotNull().NotEmpty();
                 RuleFor(x => x.UfId).NotNull().NotEmpty().NotEqual(Guid.Empty);
             });
         }
